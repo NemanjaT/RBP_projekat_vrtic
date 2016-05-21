@@ -54,6 +54,19 @@ begin
 	exec sp_executesql @sql_string
 end
 go
+create procedure SP_DODAJ_FK_CONSTRAINT
+@ime_glavne_tabele nchar(30),
+@ime_glavne_kolone nchar(30),
+@ime_target_tabele nchar(30),
+@ime_target_kolone nchar(30)
+as
+begin
+	declare @sql_string nchar(4000) = 
+		'alter table ' + @ime_glavne_tabele + ' add foreign key (' + @ime_glavne_kolone + ')' +
+		'references ' + @ime_target_tabele + ' (' + @ime_target_kolone + ')';
+	exec sp_executesql @sql_string;
+end
+go
 create function FU_NAPRAVI_KOLONU (@ime_kolone nchar(30), @tip_atributa nchar(19), @notnull int = 1)
 returns nchar(60)
 as
