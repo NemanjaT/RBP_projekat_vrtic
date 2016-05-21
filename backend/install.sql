@@ -31,36 +31,40 @@ begin
 	foreign key (META_TABELE_ID)
 	references META_TABELE (ID);
 end
+-- Deep breath
 go
 create procedure SP_NAPRAVI_TABELU
 @ime_tabele nchar(30),
-@parametri nchar(600)
+@parametri nchar(1000)
 as
 begin
-	declare @sql_string nchar(1000) = '';
-	declare @individualni nchar(1000)
-	set @sql_string = concat('create table ', upper(@ime_tabele), '(');
-	set @sql_string = concat(@sql_string, 'id int primary key (1000, 1),')
-	select @sql_string;
-	while len(@parametri) > 0
+	declare @sql_string nchar(1000);
+	declare @individualni nchar(1000);
+	declare @start int = 0, @end int;
+	declare @output table (splitdata nchar(10));
+	set @sql_string = 'create table ' + upper(rtrim(ltrim(@ime_tabele))) + ' (';
+	set @sql_string = rtrim(@sql_string) + 'ID int primary key identity(1000, 1), ';
+	while charindex('|', @parametri, @start + 1) > 0
 	begin
-		-- izdvoji individualni parametar (kolonu)
-		set @individualni = substring (@parametri, 0, patindex('%|%', @parametri))
-		set @sql_string = concat(@sql_string, @individualni, ', ')
-		-- izbaci obradjeni parametar iz liste
-		set @parametri = substring (@parametri, len(@individualni + '|') + 1, len(@parametri))
-	end
-	set @sql_string = concat(substring (@sql_string, 0, len(@sql_string) - 2), ')')
-	--execute @sql_string
+		set @end = charindex('|', @parametri, @start + 1) - @start;
+		set @individualni = substring(@parametri, @start, @end);
+		set @sql_string = rtrim(@sql_string) + rtrim(ltrim(@individualni)) + ', ';
+		set @start = charindex('|', @parametri, @start + @end) + 1;
+	end;
+	set @sql_string = substring(rtrim(@sql_string), 0, len(@sql_string)) + ')';
+	print @sql_string
+	exec sp_executesql @sql_string
 end
 go
 create function FU_NAPRAVI_KOLONU (@ime_kolone nchar(30), @tip_atributa nchar(30), @notnull int = 1)
-returns nchar
+returns nchar(70)
 as
 begin 
-	declare @sql_string nchar(600) = '';
-	set @sql_string = @ime_kolone + ' ' + @tip_atributa;
+	declare @sql_string nchar(600);
+	set @sql_string = upper(rtrim(ltrim(@ime_kolone)) + ' ' + ltrim(rtrim(@tip_atributa)));
 	if @notnull = 1
-		set @sql_string = @sql_string + ' not null';
+		set @sql_string = rtrim(@sql_string) + ' not null';
+	set @sql_string = rtrim(@sql_string) + '|';
 	return @sql_string;
 end
+-- Aaaand breathe out!
