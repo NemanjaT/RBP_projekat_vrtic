@@ -10,7 +10,7 @@ begin
 	-- initial stuff
 	create table META_TABELE
 	(
-		ID int not null primary key,
+		ID int not null primary key identity (1000, 1),
 		IME_TABELE nchar(30),
 		AKRONIM nchar(4),
 		DATUM_KREIRANJA date,
@@ -41,6 +41,7 @@ begin
 	declare @individualni nchar(1000)
 	set @sql_string = concat('create table ', upper(@ime_tabele), '(');
 	set @sql_string = concat(@sql_string, 'id int primary key (1000, 1),')
+	select @sql_string;
 	while len(@parametri) > 0
 	begin
 		-- izdvoji individualni parametar (kolonu)
@@ -50,7 +51,7 @@ begin
 		set @parametri = substring (@parametri, len(@individualni + '|') + 1, len(@parametri))
 	end
 	set @sql_string = concat(substring (@sql_string, 0, len(@sql_string) - 2), ')')
-	execute @sql_string
+	--execute @sql_string
 end
 go
 create function FU_NAPRAVI_KOLONU (@ime_kolone nchar(30), @tip_atributa nchar(30), @notnull int = 1)
