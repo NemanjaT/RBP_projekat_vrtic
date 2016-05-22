@@ -62,8 +62,20 @@ create procedure SP_DODAJ_FK_CONSTRAINT
 as
 begin
 	declare @sql_string nchar(4000) = 
-		'alter table ' + @ime_glavne_tabele + ' add foreign key (' + @ime_glavne_kolone + ')' +
-		'references ' + @ime_target_tabele + ' (' + @ime_target_kolone + ')';
+		'alter table ' + rtrim(@ime_glavne_tabele) + ' add foreign key (' + rtrim(@ime_glavne_kolone) + ')' +
+		'references ' + rtrim(@ime_target_tabele) + ' (' + rtrim(@ime_target_kolone) + ')';
+	exec sp_executesql @sql_string;
+end
+go
+create procedure SP_DODAJ_UK_CONSTRAINT
+@ime_tabele nchar(30),
+@imena_kolona nchar(200),
+@sufiks nchar(10)
+as
+begin
+	declare @sql_string nchar(4000) = 'alter table ' + rtrim(@ime_tabele) + ' add constraint ' +
+		'UK_' + rtrim(ltrim(@ime_tabele)) + '_' + upper(rtrim(ltrim(@sufiks))) + 
+		' unique (' + rtrim(@imena_kolona) + ')';
 	exec sp_executesql @sql_string;
 end
 go
@@ -113,6 +125,20 @@ as
 begin
 	declare @sql_string nchar(70);
 	set @sql_string = upper(rtrim(ltrim(@ime_kolone)) + ' date');
+	if @notnull = 1
+		set @sql_string = rtrim(@sql_string) + ' not null';
+	if @default_now = 1
+		set @sql_string = rtrim(@sql_string) + ' default getdate()';
+	set @sql_string = rtrim(@sql_string) + '|';
+	return @sql_string;
+end
+go
+create function FU_NAPRAVI_DATETIME_KOLONU (@ime_kolone nchar(30), @notnull int = 1, @default_now int = 0)
+returns nchar(80)
+as 
+begin
+	declare @sql_string nchar(80);
+	set @sql_string = upper(rtrim(ltrim(@ime_kolone)) + ' datetime');
 	if @notnull = 1
 		set @sql_string = rtrim(@sql_string) + ' not null';
 	if @default_now = 1

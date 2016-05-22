@@ -1,10 +1,3 @@
--- NE POKRECI OVE SKRIPTE
--- DO NOT RUN THESE SCRIPTS
--- laufen nicht diese Skripte
--- dili modagan niini nga mga sinulatan
--- no ejecute estas secuencias de comandos
--- nie uruchamiać te skrypty
-
 begin
 	declare @string nchar(600);
 	set @string = 
@@ -13,3 +6,9 @@ begin
 	print @string
 	exec dbo.SP_NAPRAVI_TABELU 'DECA', @string;
 end
+
+use [master]
+go
+begin
+	drop DATABASE [VRTIC]
+END
