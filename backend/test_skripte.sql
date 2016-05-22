@@ -6,3 +6,9 @@ begin
 	print @string
 	exec dbo.SP_NAPRAVI_TABELU 'DECA', @string;
 end
+
+use [master]
+go
+begin
+	drop DATABASE [VRTIC]
+END
