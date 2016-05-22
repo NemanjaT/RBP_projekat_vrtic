@@ -58,6 +58,10 @@ begin
 									@ime_glavne_kolone = 'staratelj_id',
 									@ime_target_tabele = 'tab_staratelji',
 									@ime_target_kolone = 'id';
+	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_staratelji',
+									@ime_glavne_kolone = 'finansijska_grupa_id',
+									@ime_target_tabele = 'tab_finansijske_grupe',
+									@ime_target_kolone = 'id';
 
 	-- TAB_STARATELJI_DECA
 	set @definicija_tabele =
