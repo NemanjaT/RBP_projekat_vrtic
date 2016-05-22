@@ -51,7 +51,8 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('finansijska_grupa_id', 1, null) +
 		dbo.FU_NAPRAVI_DATE_KOLONU('datum_dodavanja', 0, 1) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('dodatne_informacije', 200, 0, '') +
-		dbo.FU_NAPRAVI_INT_KOLONU('staratelj_id', 0, null);
+		dbo.FU_NAPRAVI_INT_KOLONU('staratelj_id', 0, null) +
+		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_staratelji',
                                @parametri  = @definicija_tabele;
 	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_staratelji',
@@ -166,7 +167,8 @@ begin
 		dbo.FU_NAPRAVI_DATE_KOLONU('datum', 1, 1) +
 		dbo.FU_NAPRAVI_NUMERIC_KOLONU('finansijska_odsteta', 7, 2, 0, 0) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('prisutni_vaspitac', 35, 1, null) +
-		dbo.FU_NAPRAVI_NCHAR_KOLONU('opis_incidenta', 1000, 0, '');
+		dbo.FU_NAPRAVI_NCHAR_KOLONU('opis_incidenta', 1000, 0, '') +
+		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_incidenti',
 							   @parametri  = @definicija_tabele;
 	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_incidenti',
