@@ -1,4 +1,5 @@
 -- ### create_tables.sql ###
+
 use [VRTIC]
 go
 begin

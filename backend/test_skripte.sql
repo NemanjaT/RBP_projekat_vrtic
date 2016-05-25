@@ -12,3 +12,21 @@ go
 begin
 	drop DATABASE [VRTIC]
 END
+
+-- deleting backup...
+use [master]
+go
+begin
+drop login DB_KORISNIK
+drop login DB_ADMIN
+drop user DB_KORISNIK
+drop user DB_ADMIN
+end
+use [VRTIC]
+go
+begin
+drop login DB_KORISNIK
+drop login DB_ADMIN
+drop user DB_KORISNIK
+drop user DB_ADMIN
+end
