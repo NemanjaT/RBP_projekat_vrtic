@@ -30,3 +30,8 @@ drop login DB_ADMIN
 drop user DB_KORISNIK
 drop user DB_ADMIN
 end
+
+-- delete trigger backup
+begin
+	drop trigger TRG_DECA
+end
