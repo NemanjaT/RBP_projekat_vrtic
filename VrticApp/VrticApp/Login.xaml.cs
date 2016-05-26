@@ -17,11 +17,11 @@ using System.Windows.Shapes;
 namespace VrticApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }
@@ -45,7 +45,8 @@ namespace VrticApp
             switch (txtName.Text)
             {
                 case "DB_KORISNIK": UserWindow usr = new UserWindow(conn); usr.Show(); this.Close(); break;
-                case "DB_ADMIN": break;
+                case "DB_ADMIN": AdminWindow adm = new AdminWindow(conn); adm.Show(); this.Close(); break;
+                case "DB_PRIV": PrivWindow priv = new PrivWindow(conn); priv.Show(); this.Close(); break;
             }
          
             
