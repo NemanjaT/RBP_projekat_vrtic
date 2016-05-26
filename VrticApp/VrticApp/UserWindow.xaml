@@ -1,0 +1,31 @@
+﻿<Window x:Class="VrticApp.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VrticApp"
+        mc:Ignorable="d"
+        Title="UserWindow" Height="327.907" Width="448.837">
+    <Grid>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="236">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnDeca" Content="DECA" HorizontalAlignment="Left" Margin="296,51,0,0" VerticalAlignment="Top" Width="101" Click="btnDeca_Click"/>
+        <Button x:Name="btnGrupe" Content="GRUPE" HorizontalAlignment="Left" Margin="296,76,0,0" VerticalAlignment="Top" Width="101" Click="btnGrupe_Click"/>
+        <Button x:Name="btnLogOut" Content="ODJAVI SE" HorizontalAlignment="Left" Margin="356,267,0,0" VerticalAlignment="Top" Width="75" Click="btnLogOut_Click"/>
+        <Button x:Name="btnStaratelji" Content="STARATELJI" HorizontalAlignment="Left" Margin="296,101,0,0" VerticalAlignment="Top" Width="101" Click="btnStaratelji_Click"/>
+        <Button x:Name="btnStaratelji_Deca" Content="STARATELJI-DECA" HorizontalAlignment="Left" Margin="296,126,0,0" VerticalAlignment="Top" Width="101" Click="btnStaratelji_Deca_Click"/>
+        <Expander x:Name="expander" Header="Expander" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid Background="#FFE5E5E5"/>
+        </Expander>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="280,10,0,0" TextWrapping="Wrap" Text="Izaberite informacije koje želite da budu prikazane" VerticalAlignment="Top" Height="59" Width="151"/>
+        <Button x:Name="btnIncidenti" Content="INCIDENTI" HorizontalAlignment="Left" Margin="296,151,0,0" VerticalAlignment="Top" Width="101"/>
+        <Button x:Name="btnOstavljanja" Content="OSTAVLJANJA" HorizontalAlignment="Left" Margin="296,176,0,0" VerticalAlignment="Top" Width="101"/>
+        <Button x:Name="btnPreuzimanja" Content="PREUZIMANJA" HorizontalAlignment="Left" Margin="296,201,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.484,2.844"/>
+
+    </Grid>
+</Window>

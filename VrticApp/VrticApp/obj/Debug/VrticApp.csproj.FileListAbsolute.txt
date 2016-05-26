@@ -1,0 +1,16 @@
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\bin\Debug\VrticApp.exe.config
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\bin\Debug\VrticApp.exe
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\bin\Debug\VrticApp.pdb
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\App.g.cs
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp_MarkupCompile.cache
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp_MarkupCompile.lref
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp.g.resources
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp.Properties.Resources.resources
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp.csproj.GenerateResource.Cache
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp.exe
+c:\users\milos\documents\visual studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp.pdb
+C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\Login.g.cs
+C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\UserWindow.g.cs
+C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\Login.baml
+C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\UserWindow.baml
+C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp.csprojResolveAssemblyReference.cache
