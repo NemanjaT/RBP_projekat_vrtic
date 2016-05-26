@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.ComponentModel;
+using System.Data;
 
 namespace VrticApp
 {
@@ -49,6 +50,18 @@ namespace VrticApp
         {
             ReadData("VW_STARATELJI_DECA");
         }
+        private void btnIncidenti_Click(object sender, RoutedEventArgs e)
+        {
+            ReadData("VW_INCIDENTI");
+        }
+        private void btnOstavljanja_Click(object sender, RoutedEventArgs e)
+        {
+            ReadData("VW_OSTAVLJANJA_DECE");
+        }
+        private void btnPreuzimanja_Click(object sender, RoutedEventArgs e)
+        {
+            ReadData("VW_PREUZIMANJA_DECE");
+        }
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -56,21 +69,29 @@ namespace VrticApp
 
         private void ReadData(string Table)
         {
-            listView.Items.Clear();
+            GridView1.Columns.Clear();
+            listView.ItemsSource = null;
             try
             {
-                string str = "";
-                command = new SqlCommand("SELECT * FROM "+Table , conn);
+                command = new SqlCommand("SELECT * FROM " + Table, conn);
                 reader = command.ExecuteReader();
-                while (reader.Read())
+                for (int i = 0; i < reader.FieldCount; i++)
                 {
-                    foreach (var x in reader)
-                        str += x.ToString() + '\t';
-                    listView.Items.Add(str);
+                    GridViewColumn coll = new GridViewColumn();
+                    coll.Header = reader.GetName(i);
+                    coll.DisplayMemberBinding = new Binding(reader.GetName(i));
+                    coll.Width = 100;
+                    GridView1.Columns.Add(coll);
                 }
+                reader.Close();
+
+                SqlDataAdapter ad = new SqlDataAdapter(command);
+                DataTable t = new DataTable();
+                ad.Fill(t);
+                listView.ItemsSource = t.DefaultView;
+
             }
             catch (Exception exc) { MessageBox.Show(exc.ToString()); }
-            reader.Close();
             command = null;
         }
 
@@ -89,5 +110,4 @@ namespace VrticApp
 
 
     }
-
 }

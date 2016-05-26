@@ -14,3 +14,19 @@ C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug
 C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\Login.baml
 C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\UserWindow.baml
 C:\Users\Milos\Documents\Visual Studio 2015\Projects\VrticApp\VrticApp\obj\Debug\VrticApp.csprojResolveAssemblyReference.cache
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\bin\Debug\VrticApp.exe.config
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.exe
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.pdb
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\bin\Debug\VrticApp.exe
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\bin\Debug\VrticApp.pdb
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.csprojResolveAssemblyReference.cache
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\Login.g.cs
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\UserWindow.g.cs
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\App.g.cs
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp_MarkupCompile.cache
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp_MarkupCompile.lref
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\Login.baml
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\UserWindow.baml
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.g.resources
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.Properties.Resources.resources
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.csproj.GenerateResource.Cache

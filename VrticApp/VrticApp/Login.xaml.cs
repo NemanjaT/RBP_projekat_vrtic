@@ -37,16 +37,7 @@ namespace VrticApp
             SqlConnection conn = new SqlConnection(connectionString.ToString());
             try
             {
-                string str = "";
-                conn.Open();
-                SqlCommand myComm = new SqlCommand("SELECT * FROM TAB_GRUPE", conn);
-                SqlDataReader reader = myComm.ExecuteReader();
-                while (reader.Read())
-                {
-                    str += reader["ID"].ToString() + ' ' + reader["IME_GRUPE"].ToString();
-                    MessageBox.Show(str);
-                }
-                reader.Close();
+                conn.Open();                
             }
             catch (Exception except) { MessageBox.Show(except.ToString()); }
             
