@@ -12,8 +12,8 @@ go
 begin
 	set identity_insert TAB_GRUPE on;
 	insert into TAB_GRUPE (ID, IME_GRUPE, SPRAT, VASPITACI, CENA)
-	values (1000, 'Cvetici', 2, 'Dragana Mitic, Snezana Savic', 3000.0),
-		   (1001, 'Autici', 1, 'Jagorka Stamonasivljevic Jovanovic, John Doe, Foo Bar', 3200.0);
+	values (1000, 'Cvetici', 2, 'Dragana Mitic, Snezana Savic', '3000.0'),
+		   (1001, 'Autici', 1, 'Jagorka Stamonasivljevic Jovanovic, John Doe, Foo Bar', '3200.0');
 	set identity_insert TAB_GRUPE off;
 
 	set identity_insert TAB_DECA on;
