@@ -123,7 +123,8 @@ set nocount on;
 		
 		select @ukupni_racun = UKUPNI_RACUN
 		from TAB_RACUNI
-		where ID = @racun_id;
+		where ID = @racun_id
+		and RACUN_OTPLACEN <> 1;
 
 		if @uplata >= @ukupni_racun
 		begin
