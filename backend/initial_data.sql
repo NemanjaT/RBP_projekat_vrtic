@@ -9,6 +9,10 @@ begin
 	truncate table TAB_STARATELJI;
 	truncate table TAB_FINANSIJSKE_GRUPE;
 	truncate table TAB_INCIDENTI;
+	truncate table TAB_OSTAVLJANJA_DECE;
+	truncate table TAB_PREUZIMANJA_DECE;
+	truncate table TAB_RACUNI;
+	truncate table TAB_UPLATE;
 end
 go
 begin
@@ -75,4 +79,36 @@ begin
 	values (1000, 1001, 30000.0, 'Veljko Domar', 'Gurnula klavir kroz prozor.'),
 		   (1001, 1008, 15000.0, 'Stasa Kuvarica', 'Zapalio osigurac');
 	set identity_insert TAB_INCIDENTI off;
+
+	set identity_insert TAB_OSTAVLJANJA_DECE on;
+	insert into TAB_OSTAVLJANJA_DECE (ID, STARATELJ_ID, DETE_ID, VREME_OSTAVLJANJA, DODATNE_INFORMACIJE)
+	values (1000, 1001, 1002, cast('05/28/2016 07:02:31' as datetime), ''),
+		   (1001, 1006, 1008, cast('05/28/2016 07:00:00' as datetime), ''),
+		   (1002, 1005, 1010, cast('05/28/2016 07:23:00' as datetime), ''),
+		   (1003, 1006, 1005, cast('05/29/2016 07:30:23' as datetime), '');
+	set identity_insert TAB_OSTAVLJANJA_DECE off;
+
+	set identity_insert TAB_PREUZIMANJA_DECE on;
+	insert into TAB_PREUZIMANJA_DECE (ID, STARATELJ_ID, DETE_ID, VREME_PREUZIMANJA, DODATNE_INFORMACIJE)
+	values (1000, 1001, 1002, cast('05/28/2016 17:38:00' as datetime), ''),
+		   (1001, 1006, 1008, cast('05/28/2016 18:05:00' as datetime), ''),
+		   (1002, 1005, 1010, cast('05/28/2016 14:25:00' as datetime), ''),
+		   (1003, 1006, 1005, cast('05/29/2016 15:45:00' as datetime), '');
+	set identity_insert TAB_PREUZIMANJA_DECE off;
+
+	set identity_insert TAB_RACUNI on;
+	insert into TAB_RACUNI (ID, UKUPNI_RACUN, STARATELJ_ID, DATUM_OTPLATE, RACUN_OTPLACEN, DODATNE_INFORMACIJE)
+	values (1000, 30000.0, 1000, getdate(), 99, ''),
+		   (1001, 35000.0, 1001, getdate(), 99, ''),
+		   (1002, 37500.0, 1002, getdate(), 99, '');
+	set identity_insert TAB_RACUNI off;
+
+	set identity_insert TAB_UPLATE on;
+	insert into TAB_UPLATE (ID, RACUN_ID, UPLATA, VREME_UPLATE, PORUKA)
+	values (1000, 1000, 15000.0, getdate(), 'prva rata'),
+		   (1001, 1000, 7000.0, getdate(), 'druga rata'),
+		   (1002, 1001, 18000.0, getdate(), 'prva rata za mesec'),
+		   (1003, 1001, 9000.0, getdate(), 'druga rata za mesec'),
+		   (1004, 1002, 37500.0, getdate(), 'cela otplata');
+	set identity_insert TAB_UPLATE off;
 end

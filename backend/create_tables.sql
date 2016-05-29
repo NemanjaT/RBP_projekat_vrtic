@@ -19,8 +19,8 @@ begin
 	-- TAB_FINANSIJSKE_GRUPE
 	set @definicija_tabele =
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('ime_grupe', 20, 1, null) +
-		dbo.FU_NAPRAVI_NUMERIC_KOLONU('finansijski_od', 7, 2, 1, null) +
-		dbo.FU_NAPRAVI_NUMERIC_KOLONU('finansijski_do', 7, 2, 1, null) +
+		dbo.FU_NAPRAVI_NUMERIC_KOLONU('finansijski_od', 10, 2, 1, null) +
+		dbo.FU_NAPRAVI_NUMERIC_KOLONU('finansijski_do', 10, 2, 1, null) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('dodatne_informacije', 200, 0, '') +
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_finansijske_grupe',
@@ -45,7 +45,7 @@ begin
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('prezime', 20, 1, null) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('jmbg', 12, 1, null) +
 		dbo.FU_NAPRAVI_INT_KOLONU('u_radnom_odnosu', 1, null) +
-		dbo.FU_NAPRAVI_INT_KOLONU('finansijska_grupa_id', 1, null) +
+		dbo.FU_NAPRAVI_INT_KOLONU('finansijska_grupa_id', 0, null) +
 		dbo.FU_NAPRAVI_DATE_KOLONU('datum_dodavanja', 0, 1) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('dodatne_informacije', 200, 0, '') +
 		dbo.FU_NAPRAVI_INT_KOLONU('staratelj_id', 0, null) +
@@ -64,7 +64,7 @@ begin
 
 	-- TAB_RACUNI
 	set @definicija_tabele =
-		dbo.FU_NAPRAVI_NUMERIC_KOLONU('ukupni_racun', 7, 2, 1, 0) +
+		dbo.FU_NAPRAVI_NUMERIC_KOLONU('ukupni_racun', 10, 2, 1, 0) +
 		dbo.FU_NAPRAVI_INT_KOLONU('staratelj_id', 1, null) +
 		dbo.FU_NAPRAVI_DATE_KOLONU('datum_otplate', 1, 1) +
 		dbo.FU_NAPRAVI_INT_KOLONU('racun_otplacen', 0, 99) +
@@ -76,7 +76,7 @@ begin
 	-- TAB_UPLATE
 	set @definicija_tabele =
 		dbo.FU_NAPRAVI_INT_KOLONU('racun_id', 1, null) +
-		dbo.FU_NAPRAVI_NUMERIC_KOLONU('uplata', 7, 2, 1, null) +
+		dbo.FU_NAPRAVI_NUMERIC_KOLONU('uplata', 10, 2, 1, null) +
 		dbo.FU_NAPRAVI_DATETIME_KOLONU('vreme_uplate', 1, 1) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('poruka', 200, 0, null) +
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
@@ -110,7 +110,7 @@ begin
 	set @definicija_tabele =
 		dbo.FU_NAPRAVI_INT_KOLONU('dete_id', 1, null) +
 		dbo.FU_NAPRAVI_DATE_KOLONU('datum', 1, 1) +
-		dbo.FU_NAPRAVI_NUMERIC_KOLONU('finansijska_odsteta', 7, 2, 0, 0) +
+		dbo.FU_NAPRAVI_NUMERIC_KOLONU('finansijska_odsteta', 10, 2, 0, 0) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('prisutni_vaspitac', 35, 1, null) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('opis_incidenta', 1000, 0, '') +
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
