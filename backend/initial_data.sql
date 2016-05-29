@@ -1,3 +1,5 @@
+-- ### initial_data.sql ###
+
 use [VRTIC]
 go
 begin
@@ -20,7 +22,7 @@ begin
 	insert into TAB_DECA (ID, IME, PREZIME, DATUM_RODJENJA, GRUPA_ID, DODATNE_INFORMACIJE)
 	values (1000, 'Kika', 'Simic', CAST('01/01/2010' as date), 1000, ''),
 		   (1001, 'Milja', 'Trifunovic', CAST('12/31/2009' as date), 1000, 'Cerka Sinise Trifunovica'),
-		   (1002, 'Snezana', 'Andjelkovic', CAST('05/08/2008' as date), 1000, 'Cerka Milosa Andjelkovica'),
+		   (1002, 'Jelena', 'Andjelkovic', CAST('05/08/2008' as date), 1000, 'Cerka Milosa Andjelkovica'),
 		   (1003, 'Mina', 'Tozic', CAST('12/06/2011' as date), 1000, 'Cerka Nemanje Tozica'),
 		   (1004, 'Brena', 'Lepa', CAST('05/04/2010' as date), 1000, ''),
 		   (1005, 'Svetlana', 'Raznatovic', CAST('07/10/2009' as date), 1000, 'Stalno pominje gromove...'),
@@ -49,7 +51,7 @@ begin
 		   (1003, 'Andjelka', 'Trifunovic', '345678901234', 99, null, '', 1000),
 		   (1004, 'Ivana', 'Andjelkovic', '456789012345', 1, 1002, 'Dobio je kao rodjendanski poklon', 1001),
 		   (1005, 'Igor', 'Nikolic', '57890123456', 99, null, '', null),
-		   (1006, 'Svetozar', 'Sindjelic', 1, 1000, null, '', null);
+		   (1006, 'Svetozar', 'Sindjelic', '678901234567', 1, 1000, '', null);
 	set identity_insert TAB_STARATELJI off;
 
 	set identity_insert TAB_STARATELJI_DECA on;

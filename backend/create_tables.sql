@@ -38,10 +38,6 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_deca', 
                                @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_deca',
-									@ime_glavne_kolone = 'grupa_id',
-									@ime_target_tabele = 'tab_grupe',
-									@ime_target_kolone = 'id';
 
 	-- TAB_STARATELJI
 	set @definicija_tabele =
@@ -56,14 +52,6 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_staratelji',
                                @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_staratelji',
-									@ime_glavne_kolone = 'staratelj_id',
-									@ime_target_tabele = 'tab_staratelji',
-									@ime_target_kolone = 'id';
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_staratelji',
-									@ime_glavne_kolone = 'finansijska_grupa_id',
-									@ime_target_tabele = 'tab_finansijske_grupe',
-									@ime_target_kolone = 'id';
 
 	-- TAB_STARATELJI_DECA
 	set @definicija_tabele =
@@ -73,14 +61,6 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1)
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_staratelji_deca',
                                @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_staratelji_deca',
-                                    @ime_glavne_kolone = 'dete_id',
-                                    @ime_target_tabele = 'tab_deca',
-                                    @ime_target_kolone = 'id';
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_staratelji_deca',
-                                    @ime_glavne_kolone = 'staratelj_id',
-									@ime_target_tabele = 'tab_staratelji',
-									@ime_target_kolone = 'id';
 
 	-- TAB_RACUNI
 	set @definicija_tabele =
@@ -92,30 +72,16 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_racuni',
 							   @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_racuni',
-									@ime_glavne_kolone = 'staratelj_id',
-									@ime_target_tabele = 'tab_staratelji',
-									@ime_target_kolone = 'id';
-	exec dbo.SP_DODAJ_UK_CONSTRAINT @ime_tabele   = 'tab_racuni',
-									@imena_kolona = 'staratelj_id, datum_otplate',
-									@sufiks       = 'placanja';
 
 	-- TAB_UPLATE
 	set @definicija_tabele =
 		dbo.FU_NAPRAVI_INT_KOLONU('racun_id', 1, null) +
-		dbo.FU_NAPRAVI_NCHAR_KOLONU('uplata', 7, 2, 0) +
+		dbo.FU_NAPRAVI_NUMERIC_KOLONU('uplata', 7, 2, 1, null) +
 		dbo.FU_NAPRAVI_DATETIME_KOLONU('vreme_uplate', 1, 1) +
 		dbo.FU_NAPRAVI_NCHAR_KOLONU('poruka', 200, 0, null) +
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_uplate',
 							   @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_uplate',
-									@ime_glavne_kolone = 'racun_id',
-									@ime_target_tabele = 'tab_racuni',
-									@ime_target_kolone = 'id';
-	exec dbo.SP_DODAJ_UK_CONSTRAINT @ime_tabele   = 'tab_uplate',
-									@imena_kolona = 'uplata, vreme_uplate, poruka',
-									@sufiks       = 'uplata';
 
 
 	-- TAB_PREUZIMANJA_DECE
@@ -127,17 +93,6 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_preuzimanja_dece',
 							   @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_preuzimanja_dece',
-									@ime_glavne_kolone = 'staratelj_id',
-									@ime_target_tabele = 'tab_staratelji',
-									@ime_target_kolone = 'id';
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_preuzimanja_dece',
-									@ime_glavne_kolone = 'dete_id',
-									@ime_target_tabele = 'tab_deca',
-									@ime_target_kolone = 'id';
-	exec SP_DODAJ_UK_CONSTRAINT @ime_tabele   = 'tab_preuzimanja_dece',
-								@imena_kolona = 'staratelj_id, dete_id, vreme_preuzimanja',
-								@sufiks       = 'rod_dete';
 
 
 	-- TAB_OSTAVLJANJA_DECE
@@ -149,17 +104,6 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_ostavljanja_dece',
 							   @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_ostavljanja_dece',
-									@ime_glavne_kolone = 'staratelj_id',
-									@ime_target_tabele = 'tab_staratelji',
-									@ime_target_kolone = 'id';
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_ostavljanja_dece',
-									@ime_glavne_kolone = 'dete_id',
-									@ime_target_tabele = 'tab_deca',
-									@ime_target_kolone = 'id';
-	exec dbo.SP_DODAJ_UK_CONSTRAINT @ime_tabele   = 'tab_ostavljanja_dece',
-									@imena_kolona = 'staratelj_id, dete_id, vreme_ostavljanja',
-									@sufiks       = 'rod_dete';
 
 
 	-- TAB_INCIDENTI
@@ -172,8 +116,4 @@ begin
 		dbo.FU_NAPRAVI_INT_KOLONU('status', 1, 1);
 	exec dbo.SP_NAPRAVI_TABELU @ime_tabele = 'tab_incidenti',
 							   @parametri  = @definicija_tabele;
-	exec dbo.SP_DODAJ_FK_CONSTRAINT @ime_glavne_tabele = 'tab_incidenti',
-									@ime_glavne_kolone = 'dete_id',
-									@ime_target_tabele = 'tab_deca',
-									@ime_target_kolone = 'id';
 end

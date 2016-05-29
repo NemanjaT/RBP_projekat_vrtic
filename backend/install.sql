@@ -2,7 +2,16 @@
 
 use [master]
 go
-create database [VRTIC]
+begin
+	drop database [VRTIC];
+	drop login DB_ADMIN;
+	drop user DB_ADMIN;
+	drop login DB_KORISNIK;
+	drop user DB_KORISNIK;
+	drop login DB_PRIV;
+	drop user DB_PRIV;
+	create database [VRTIC];
+end
 go
 use [VRTIC]
 go
