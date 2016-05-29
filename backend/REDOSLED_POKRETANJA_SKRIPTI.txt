@@ -1,0 +1,8 @@
+install.sql
+create_tables.sql
+create_views.sql
+create_triggers.sql
+create_merge_procedures.sql
+initial_data.sql
+create_constraints.sql
+create_users.sql
