@@ -30,13 +30,13 @@ namespace VrticApp
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            string time = "@";
+            string time = "@vreme_ostavljanja";
+            string proc = "SP_DODAJ_OSTAVLJANJE_DETETA";
             if (check())
             {
-                if (rdoLeave.IsChecked == true) time += "vreme_ostavljanja";
-                else time += "vreme_preuzimanja";
+                if (rdoTake.IsChecked == true) { time = "@vreme_preuzimanja"; proc = "SP_DODAJ_PREUZIMANJE_DETETA"; }
                 
-                using (SqlCommand command = new SqlCommand("SP_DODAJ_DETE", conn))
+                using (SqlCommand command = new SqlCommand(proc, conn))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@staratelj_id", int.Parse(txtTeacherID.Text));

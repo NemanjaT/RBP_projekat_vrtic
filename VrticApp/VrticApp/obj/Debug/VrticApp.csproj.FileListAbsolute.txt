@@ -36,3 +36,5 @@ C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\P
 C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\AddChild.baml
 C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\LeaveTake.baml
 C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\PrivWindow.baml
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\Receipt.g.cs
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\Receipt.baml
