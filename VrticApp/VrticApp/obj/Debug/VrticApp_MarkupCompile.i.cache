@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\App.xaml
-4-1056646390
+6-1434325320
 
-121404000778
+14-1700470645
 13738642453
-AdminWindow.xaml;Login.xaml;PrivWindow.xaml;UserWindow.xaml;
+PRIV\AddChild.xaml;PRIV\LeaveTake.xaml;Login.xaml;PRIV\PrivWindow.xaml;PRIV\Receipt.xaml;UserWindow.xaml;
 
-False
+True
 

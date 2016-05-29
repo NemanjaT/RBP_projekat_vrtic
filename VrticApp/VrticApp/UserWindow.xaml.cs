@@ -37,31 +37,31 @@ namespace VrticApp
         //on_clic eventovi za dugmiće
         private void btnDeca_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(()=>ReadData("VW_DECA")).Start();
+            ReadData("VW_DECA");
         }
         private void btnGrupe_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(()=>ReadData("VW_GRUPE")).Start();
+            ReadData("VW_GRUPE");
         }
         private void btnStaratelji_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(()=>ReadData("VW_STARATELJI")).Start();
+            ReadData("VW_STARATELJI");
         }
         private void btnStaratelji_Deca_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(()=>ReadData("VW_STARATELJI_DECA")).Start();
+            ReadData("VW_STARATELJI_DECA");
         }
         private void btnIncidenti_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(()=>ReadData("VW_INCIDENTI")).Start();
+            ReadData("VW_INCIDENTI");
         }
         private void btnOstavljanja_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(()=>ReadData("VW_OSTAVLJANJA_DECE")).Start();
+            ReadData("VW_OSTAVLJANJA_DECE");
         }
         private void btnPreuzimanja_Click(object sender, RoutedEventArgs e)
         {
-            new Thread(()=>ReadData("VW_PREUZIMANJA_DECE")).Start();
+            ReadData("VW_PREUZIMANJA_DECE");
         }
         private void btnLogOut_Click(object sender, RoutedEventArgs e)
         {
@@ -104,7 +104,10 @@ namespace VrticApp
             try
             {
                 conn.Close();
+                conn = null;
                 command = null;
+                table = null;
+                adapter = null;
             }
             catch (Exception excp) { MessageBox.Show(excp.ToString()); }
             LoginWindow log = new LoginWindow();

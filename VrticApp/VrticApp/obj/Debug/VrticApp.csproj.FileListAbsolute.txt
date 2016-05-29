@@ -30,7 +30,9 @@ C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\U
 C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.g.resources
 C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.Properties.Resources.resources
 C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\VrticApp.csproj.GenerateResource.Cache
-C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\AdminWindow.g.cs
-C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PrivWindow.g.cs
-C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\AdminWindow.baml
-C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PrivWindow.baml
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\AddChild.g.cs
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\LeaveTake.g.cs
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\PrivWindow.g.cs
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\AddChild.baml
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\LeaveTake.baml
+C:\Users\Milos\Documents\GitHub\RBP_projekat_vrtic\VrticApp\VrticApp\obj\Debug\PRIV\PrivWindow.baml

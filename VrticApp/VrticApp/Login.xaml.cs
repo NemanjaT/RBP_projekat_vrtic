@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VrticApp.PRIV;
 
 namespace VrticApp
 {
@@ -45,7 +46,7 @@ namespace VrticApp
             switch (txtName.Text)
             {
                 case "DB_KORISNIK": UserWindow usr = new UserWindow(conn); usr.Show(); this.Close(); break;
-                case "DB_ADMIN": AdminWindow adm = new AdminWindow(conn); adm.Show(); this.Close(); break;
+               // case "DB_ADMIN": AdminWindow adm = new AdminWindow(conn); adm.Show(); this.Close(); break;
                 case "DB_PRIV": PrivWindow priv = new PrivWindow(conn); priv.Show(); this.Close(); break;
             }
          

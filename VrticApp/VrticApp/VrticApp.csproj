@@ -55,16 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AdminWindow.xaml.cs">
-      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    <Compile Include="PRIV\AddChild.xaml.cs">
+      <DependentUpon>AddChild.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PrivWindow.xaml.cs">
+    <Compile Include="PRIV\LeaveTake.xaml.cs">
+      <DependentUpon>LeaveTake.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PRIV\PrivWindow.xaml.cs">
       <DependentUpon>PrivWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AdminWindow.xaml">
+    <Page Include="PRIV\AddChild.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PRIV\LeaveTake.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,7 +87,7 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PrivWindow.xaml">
+    <Page Include="PRIV\PrivWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
