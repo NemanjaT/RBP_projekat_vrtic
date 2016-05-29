@@ -108,8 +108,10 @@ set nocount on;
 		(RAW_ID int not null primary key identity (1,1), UPLATA numeric(10,2), RACUN_ID int);
 	insert into @temp_tabela (UPLATA, RACUN_ID) 
 		select sum(UPLATA), RACUN_ID 
-		from inserted
-		group by RACUN_ID
+		from TAB_UPLATE
+		where year(VREME_UPLATE) = year(sysdatetime())
+		and month(VREME_UPLATE) = month(sysdatetime())
+		group by RACUN_ID;
 	set @ukupno_redova = @@ROWCOUNT;
 	while @trenutni_red < @ukupno_redova
 	begin
