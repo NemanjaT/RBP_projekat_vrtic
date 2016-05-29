@@ -1,3 +1,5 @@
+-- ### create_triggers.sql ###
+
 use [VRTIC]
 go
 create trigger TRG_DECA
@@ -86,6 +88,7 @@ after insert
 as
 begin
 set nocount on;
+	-- ubacivanje vremena_uplate ako ne postoji
 	declare @datum date;
 	select @datum = max(VREME_UPLATE) from inserted;
 	if @datum is null
@@ -96,4 +99,35 @@ set nocount on;
 		join inserted i on i.ID = inc.ID
 		where i.ID = inc.ID;
 	end;
+
+	-- settovanje otplacenosti za racun ukoliko je suma dovoljna
+	--declare @ukupno_uplaceno numeric(12,2);
+	declare @trenutni_red int = 0, @ukupno_redova int;
+	declare @uplata numeric(10,2), @racun_id int, @ukupni_racun numeric(10,2);
+	declare @temp_tabela table 
+		(RAW_ID int not null primary key identity (1,1), UPLATA numeric(10,2), RACUN_ID int);
+	insert into @temp_tabela (UPLATA, RACUN_ID) 
+		select sum(UPLATA), RACUN_ID 
+		from inserted
+		group by RACUN_ID
+	set @ukupno_redova = @@ROWCOUNT;
+	while @trenutni_red < @ukupno_redova
+	begin
+		set @trenutni_red = @trenutni_red + 1;
+		
+		select @uplata = UPLATA, @racun_id = RACUN_ID
+		from @temp_tabela
+		where RAW_ID = @trenutni_red;
+		
+		select @ukupni_racun = UKUPNI_RACUN
+		from TAB_RACUNI
+		where ID = @racun_id;
+
+		if @uplata >= @ukupni_racun
+		begin
+			update TAB_RACUNI
+			set RACUN_OTPLACEN = 1
+			where ID = @racun_id;
+		end
+	end
 end
