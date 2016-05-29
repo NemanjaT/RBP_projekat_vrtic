@@ -109,6 +109,7 @@ begin
 		   (1001, 1000, 7000.0, getdate(), 'druga rata'),
 		   (1002, 1001, 18000.0, getdate(), 'prva rata za mesec'),
 		   (1003, 1001, 9000.0, getdate(), 'druga rata za mesec'),
-		   (1004, 1002, 37500.0, getdate(), 'cela otplata');
+		   (1004, 1002, 37500.0, getdate(), 'cela otplata'),
+		   (1005, 1001, 8500.0, getdate(), 'poslednja rata za mesec + baksis :)');
 	set identity_insert TAB_UPLATE off;
 end
