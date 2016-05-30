@@ -4,12 +4,9 @@ use [VRTIC]
 go
 create view VW_DECA
 as
-select dc.ID, dc.IME, dc.PREZIME, dc.DATUM_RODJENJA, gr.IME_GRUPE, dc.DATUM_DODAVANJA, 
-	st.IME as GLAVNI_STARATELJ_IME, st.PREZIME as GLAVNI_STARATELJ_PREZIME
+select dc.ID, dc.IME, dc.PREZIME, dc.DATUM_RODJENJA, gr.IME_GRUPE, dc.DATUM_DODAVANJA
 from TAB_DECA dc
 join TAB_GRUPE gr on dc.GRUPA_ID = gr.ID and gr.STATUS <> 99
-join TAB_STARATELJI_DECA sd on sd.DETE_ID = dc.ID and sd.STATUS <> 99
-join TAB_STARATELJI st on sd.STARATELJ_ID = st.ID and st.STARATELJ_ID = null and st.STATUS <> 99
 where dc.STATUS <> 99;
 go
 create view VW_FINANSIJSKE_GRUPE
