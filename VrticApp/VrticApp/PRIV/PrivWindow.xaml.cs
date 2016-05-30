@@ -107,6 +107,7 @@ namespace VrticApp
         private void btnReceipt_Click(object sender, RoutedEventArgs e)
         {
             Receipt rcp = new Receipt(conn);
+            rcp.Show();
         }
     }
 }

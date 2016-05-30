@@ -49,6 +49,7 @@ namespace VrticApp
                     }
                 }
             }
+            else MessageBox.Show("Morate da popunite sva polja!");
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -79,6 +80,7 @@ namespace VrticApp
                     }
                 }
             }
+            else MessageBox.Show("Morate da popunite sva polja!");
         }
         private bool checkChild()
         {

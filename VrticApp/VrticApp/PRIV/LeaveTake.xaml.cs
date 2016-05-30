@@ -35,7 +35,7 @@ namespace VrticApp
             if (check())
             {
                 if (rdoTake.IsChecked == true) { time = "@vreme_preuzimanja"; proc = "SP_DODAJ_PREUZIMANJE_DETETA"; }
-                
+
                 using (SqlCommand command = new SqlCommand(proc, conn))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
@@ -55,6 +55,7 @@ namespace VrticApp
                     }
                 }
             }
+            else MessageBox.Show("Morate da popunite sva polja!");
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

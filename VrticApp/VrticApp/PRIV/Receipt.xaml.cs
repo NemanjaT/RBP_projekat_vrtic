@@ -28,18 +28,14 @@ namespace VrticApp.PRIV
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            int yes_no = 99;
             if (check())
             {
-                if (rbtnNo.IsChecked == true) yes_no = 99;
-                else yes_no = 1;
                 using (SqlCommand command = new SqlCommand("SP_DODAJ_RAČUN", conn))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@ukupan_racun", Double.Parse(txtTotal.Text));
                     command.Parameters.AddWithValue("@staratelj_id", txtTeacherID.Text);
                     command.Parameters.AddWithValue("@datum_otplate", datePicker.SelectedDate);
-                    command.Parameters.AddWithValue("@racun_otplacen", yes_no);
                     command.Parameters.AddWithValue("@dodatne_informacije", txtInfo.Text);
                     try
                     {
@@ -53,6 +49,7 @@ namespace VrticApp.PRIV
                     }
                 }
             }
+            else MessageBox.Show("Morate da popunite sva polja!");
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
