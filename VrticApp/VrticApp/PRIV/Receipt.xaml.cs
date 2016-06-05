@@ -24,16 +24,17 @@ namespace VrticApp.PRIV
         public Receipt(SqlConnection conn)
         {
             InitializeComponent();
+            this.conn = conn;
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             if (check())
             {
-                using (SqlCommand command = new SqlCommand("SP_DODAJ_RAČUN", conn))
+                using (SqlCommand command = new SqlCommand("SP_DODAJ_RACUN", conn))
                 {
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@ukupan_racun", Double.Parse(txtTotal.Text));
+                    command.Parameters.AddWithValue("@ukupni_racun", Double.Parse(txtTotal.Text));
                     command.Parameters.AddWithValue("@staratelj_id", txtTeacherID.Text);
                     command.Parameters.AddWithValue("@datum_otplate", datePicker.SelectedDate);
                     command.Parameters.AddWithValue("@dodatne_informacije", txtInfo.Text);

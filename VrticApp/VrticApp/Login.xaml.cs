@@ -34,7 +34,7 @@ namespace VrticApp
             connectionString.Password = txtPassword.Password;
             connectionString.DataSource = "localhost";
             connectionString.InitialCatalog = "VRTIC";
-            connectionString.IntegratedSecurity = true;
+            //connectionString.IntegratedSecurity = true;
             SqlConnection conn = new SqlConnection(connectionString.ToString());
             try
             {
